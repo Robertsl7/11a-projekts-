@@ -9,7 +9,7 @@ def izveleties_abonamentu():
     }
     return 
 
-
+#aluuuuuuuuuuuuuuuwd 
 
 
 def galvena():
