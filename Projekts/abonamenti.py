@@ -25,6 +25,13 @@ class klienta_informacija():
         if abonesanas_veids == 4:
             self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=365)
             print("Abonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
+    def failu_izveide(self):
+        faila_nosaukums = self.vards+"_"+self.uzvards+".txt"
+        with open(faila_nosaukums,"a", encoding = "utf-8") as file:
+            file.write(f"Vārds: {self.vards}\nUzvārds: {self.uzvards}\nVecums: {self.vecums}\nGarums: {self.garums}\nDzimums: {self.dzimums}\n")
+            file.write(f"Abonamenta izveides datums: {self.abonesanas_laiks}\nAbonamenta beigšanās datums: {self.abonesanas_beigsanas}")
+        
+
 
 
 vards = input("Ievadiet klienta vārdu: ")
@@ -36,3 +43,4 @@ klients = klienta_informacija(vards,uzvards,vecums,garums,dzimums)
 
 klients.izvade()
 klients.abonesana()
+klients.failu_izveide()
