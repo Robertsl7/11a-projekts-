@@ -7,24 +7,37 @@ class klienta_informacija():
         self.garums = garums
         self.dzimums = dzimums
     def izvade(self):
-        print(self.vards,self.uzvards,self.vecums,self.garums,self.dzimums)
+        print("***")
+        print(f"Vārds: {self.vards}\nUzvārds: {self.uzvards}\nVecums: {self.vecums}\nGarums: {self.garums}\nDzimums: {self.dzimums}")
+        print("***")
     def abonesana(self):
         abonesanas_laiks = datetime.now()
         self.abonesanas_laiks = abonesanas_laiks
         print("Abonamenta izveides laiks", self.abonesanas_laiks.strftime("%Y-%m-%d"))
         abonesanas_veids = int(input("Izvēlaties abonamentu: "))
-        if abonesanas_veids == 1:
-            self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=1)
-            print("Abonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
-        if abonesanas_veids == 2:
-            self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=7)
-            print("Abonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
-        if abonesanas_veids == 3:
-            self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=30)
-            print("Abonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
-        if abonesanas_veids == 4:
-            self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=365)
-            print("Abonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
+        while True:
+            if abonesanas_veids == 1:
+                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=1)
+                print("Abonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
+                break
+            if abonesanas_veids == 2:
+                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=7)
+                print("Abonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
+                break
+            if abonesanas_veids == 3:
+                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=30)
+                print("Abonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
+                break
+            if abonesanas_veids == 4:
+                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=365)
+                print("Abonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
+                break
+            
+            else:
+                print("Ievadiet pareizu skaitli! (1-4)!")
+                abonesanas_veids = int(input("Izvēlaties abonamentu: "))
+        print("***")
+        print("Klienta fails ir izveidots!")
     def failu_izveide(self):
         faila_nosaukums = self.vards+"_"+self.uzvards+".txt"
         with open(faila_nosaukums,"a", encoding = "utf-8") as file:
