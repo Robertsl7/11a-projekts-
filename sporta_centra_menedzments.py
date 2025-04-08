@@ -1,14 +1,14 @@
 import os
 def izveleties_abonamentu():
     print("Izvēlaties abonamenta veidu: (1- dienas abonaments, 2- nedēļas abonaments, 3- mēneša abonaments, 4- gada abonaments):")
-    izvele1 = input()
+    izvele_1 = input()
     veidi = {
         '1': 'dienas',
         '2': 'nedēļas',
         '3': 'mēneša',
         '4': 'gada'
     }
-    return veidi.get(izvele1, "nezināms")
+    return veidi.get(izvele_1, "nezināms")
 
 
 def atcelt_abonamentu():
@@ -26,7 +26,7 @@ def galvena():
         print("Ko jūs vēlaties darīt? (1- izviedot jaunu profilu, 2- dzēst abonamentu, 3- iziet):")
         izvele = input()
         if izvele == '1':
-            klienta_informacija()
+            pass#klienta_informacija() 
         elif izvele == '2':
             atcelt_abonamentu()          
         elif izvele == '3':
