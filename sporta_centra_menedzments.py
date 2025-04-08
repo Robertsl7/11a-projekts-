@@ -8,7 +8,7 @@ def izveleties_abonamentu():
         '3': 'mēneša',
         '4': 'gada'
     }
-    return 
+    return veidi.get(izvele1, "nezināms")
 
 
 def atcelt_abonamentu():
@@ -19,7 +19,7 @@ def atcelt_abonamentu():
         return
 
     os.remove(filename)
-    print("Abonaments ir dzēsts.")
+    print("Abonaments ir dzēsts.") 
 
 def galvena():
     while True:
@@ -34,5 +34,15 @@ def galvena():
             break
         else:
             print("Nepareiza izvēle, lūdzu mēģiniet vēlreiz.")
+
+def atcelt_abonamentu():
+    filename = input("Ievadiet faila nosaukumu, no kura vēlaties dzēst abonamentu: ")
+    
+    if not os.path.exists(filename):
+        print(f"Fails {filename} neeksistē!")
+        return
+
+    os.remove(filename)
+    print("Abonaments ir dzēsts.")
 
 galvena()
