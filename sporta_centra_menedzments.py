@@ -35,14 +35,4 @@ def galvena():
         else:
             print("Nepareiza izvēle, lūdzu mēģiniet vēlreiz.")
 
-def atcelt_abonamentu():
-    filename = input("Ievadiet faila nosaukumu, no kura vēlaties dzēst abonamentu: ")
-    
-    if not os.path.exists(filename):
-        print(f"Fails {filename} neeksistē!")
-        return
-
-    os.remove(filename)
-    print("Abonaments ir dzēsts.")
-
 galvena()
