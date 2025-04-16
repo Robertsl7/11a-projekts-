@@ -1,8 +1,8 @@
 import os
 from datetime import datetime, timedelta
-
+print("Sporta centra abonamentu programma")
 class klienta_informacija():
-    def __init__(self, vards, uzvards, vecums, garums, dzimums):
+    def __init__(self, vards, uzvards, vecums, garums, dzimums):# Identificē klienta informāciju ar vārdu, uzvārdu, vecumu, garumu un dzimumu
         self.vards = vards
         self.uzvards = uzvards
         self.vecums = vecums
@@ -24,26 +24,26 @@ class klienta_informacija():
 
         while True:
             if abonesanas_veids == 1:
-                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=1)
+                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=1)# 1 dienas abonaments
                 print("\nAbonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
                 break
             if abonesanas_veids == 2:
-                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=7)
+                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=7)# 7 dienu abonaments
                 print("\nAbonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
                 break
             if abonesanas_veids == 3:
-                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=30)
+                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=30)# 30 dienu abonaments
                 print("\nAbonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
                 break
             if abonesanas_veids == 4:
-                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=365)
+                self.abonesanas_beigsanas = abonesanas_laiks + timedelta(days=365)# 365 dienu abonaments
                 print("\nAbonamenta beigu datums: ", self.abonesanas_beigsanas.strftime("%Y-%m-%d"))
                 break
             
-            else:
+            else:#Ja ir nepareiza ievade, tad prasa ievadīt vēlreiz
                 print("Ievadiet pareizu skaitli! (1-4)!")
                 abonesanas_veids = int(input("Jūsu izvēle: "))
-        self.abonesanas_beigsanas = self.abonesanas_beigsanas.strftime("%Y-%m-%d") #Pārviedo lai izvada tikai gadu, mēnesi un dienu
+        self.abonesanas_beigsanas = self.abonesanas_beigsanas.strftime("%Y-%m-%d")# Formatē, lai izvada tikai gadu, mēnesi un dienu
         self.abonesanas_laiks = self.abonesanas_laiks.strftime("%Y-%m-%d")
         print("***")
         print("Klienta fails ir izveidots!")
@@ -55,20 +55,18 @@ class klienta_informacija():
             file.write(f"\nAbonamenta izveides datums: {self.abonesanas_laiks}\nAbonamenta beigšanās datums: {self.abonesanas_beigsanas}")
         
 
-def izveleties_abonamentu():
+def izveleties_abonamentu():# Izvada abonementa izvēles iespējas
     print("\nIzvēlaties abonamenta veidu: \n1- dienas abonaments \n2- nedēļas abonaments \n3- mēneša abonaments \n4- gada abonaments")
     
-
-
-def atcelt_abonamentu():
-    filename = input("Ievadiet faila nosaukumu, no kura vēlaties dzēst abonamentu: ")
-    if not os.path.exists(filename):
+def atcelt_abonamentu():# Ļauj dzēst abonementu, ievadot faila nosaukumu
+    filename = input("Ievadiet faila nosaukumu, no kura vēlaties dzēst abonamentu(vards_uzvards.txt): ")
+    if not os.path.exists(filename):# Pārbauda, vai fails ar nosaukumu `filename` eksistē
         print(f"Fails {filename} neeksistē!")
         return
-    os.remove(filename)
+    os.remove(filename)#ja fails eksistē, tad to izdzēš
     print("Abonaments ir dzēsts.") 
 
-def galvena():
+def galvena():#Galvenā funkcija pie atbilstošas izvēles izsauc atbilstošu funkciju.
     while True:
         print("Ko jūs vēlaties darīt? (1- izveidot jaunu profilu, 2- dzēst abonamentu, 3- iziet):")
         izvele = input()
