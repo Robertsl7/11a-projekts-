@@ -92,4 +92,4 @@ def galvena(): #izsauc funkcijas un ļauj ievadīt datus
         else:
             print("Nepareiza ievade, lūdzu ievadiet skaitli (1-3).")
 
-galvena() 
+galvena()

@@ -26,7 +26,7 @@ def galvena():
         print("Ko jūs vēlaties darīt? (1- izviedot jaunu profilu, 2- dzēst abonamentu, 3- iziet):")
         izvele = input()
         if izvele == '1':
-            pass#klienta_informacija() 
+            pass #klienta_informacija() 
         elif izvele == '2':
             atcelt_abonamentu()          
         elif izvele == '3':
